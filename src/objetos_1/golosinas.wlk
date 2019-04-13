@@ -9,19 +9,51 @@ object bombon {
 }
 
 object alfajor {
-	// definir
+	var peso=300
+	
+	method precio(){return 12}
+	method peso(){return peso}
+	method gusto(){return "chocolate"}
+	method mosdisco(){peso=peso*0.8}
+	method libreGluten(){return false}
 }
 
 object caramelo {
-	// definir
+		var peso=5
+	
+	method precio(){return 1}
+	method peso(){return peso}
+	method gusto(){return "frutilla"}
+	method mosdisco(){peso=peso-1}
+	method libreGluten(){return true}
+	
+	
 }
 
 object chupetin {
-	// definir
+		var peso=7
+	
+	method precio(){return 2}
+	method peso(){return peso}
+	method gusto(){return "naranja"}
+	method mosdisco(){
+		if(peso>=2){
+			peso=peso*0.9
+			}
+	}
+	method libreGluten(){return true}
 }
 
 object oblea {
-	// definir
+		var peso=250
+	
+	method precio(){return 5}
+	method peso(){return peso}
+	method gusto(){return "vainilla"}
+	method mosdisco(){
+		if(peso>70){peso=peso*0.5}else{peso=peso*0.75}
+	}
+	method libreGluten(){return false}
 }
 
 object chocolatin {
@@ -30,6 +62,11 @@ object chocolatin {
 	// el mordisco afecta al peso actual
 	var pesoInicial
 	var pesoActual
+	
+	method precio(){return pesoInicial*0.50}
+	method gusto(){return "chocolate"}
+	method mosdisco(){pesoActual=pesoActual-2}
+	method libreGluten(){return false}
 	
 	/* al principio, el peso actual coincide con el inicial */
 	method pesoInicial(cuanto) { 
@@ -43,18 +80,26 @@ object golosinaBaniada {
 	var pesoBanio = 4
 	
 	method baniaA(unaGolosina) { golosinaInterior = unaGolosina }
-	method precio() { /* completar */ }
-	method peso() { /* completar */ }
+	method precio() {return golosinaInterior.precio()+ 2 }
+	method peso() { return golosinaInterior.peso() + pesoBanio }
 	method mordisco() {
 		golosinaInterior.mordisco()
 		if (pesoBanio > 0) { pesoBanio -= 2 }
 		// otra forma de hacer la cuenta: pesoBanio = (pesoBanio - 2).max(0) 
 	}	
 	method gusto() { return golosinaInterior.gusto() }
-	method libreGluten() { /* completar */}	
+	method libreGluten() {return golosinaInterior.libreGluten()}	
 }
 
 object tuttifrutti {
-	// como manejar el cambio de sabor ??
+	var peso= 5
+	var gusto="frutilla"
+	var property libreGluten=false
+	
+	method peso()=peso
+	method precio()=if(libreGluten) 7 else 10
+	method mordisco(){gusto=gusto.siguiente()}
+	
+	
 }
 
