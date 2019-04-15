@@ -14,7 +14,7 @@ object alfajor {
 	method precio(){return 12}
 	method peso(){return peso}
 	method gusto(){return "chocolate"}
-	method mosdisco(){peso=peso*0.8}
+	method mordisco(){peso=peso*0.8}
 	method libreGluten(){return false}
 }
 
@@ -24,7 +24,7 @@ object caramelo {
 	method precio(){return 1}
 	method peso(){return peso}
 	method gusto(){return "frutilla"}
-	method mosdisco(){peso=peso-1}
+	method mordisco(){peso=peso-1}
 	method libreGluten(){return true}
 	
 	
@@ -36,7 +36,7 @@ object chupetin {
 	method precio(){return 2}
 	method peso(){return peso}
 	method gusto(){return "naranja"}
-	method mosdisco(){
+	method mordisco(){
 		if(peso>=2){
 			peso=peso*0.9
 			}
@@ -50,7 +50,7 @@ object oblea {
 	method precio(){return 5}
 	method peso(){return peso}
 	method gusto(){return "vainilla"}
-	method mosdisco(){
+	method mordisco(){
 		if(peso>70){peso=peso*0.5}else{peso=peso*0.75}
 	}
 	method libreGluten(){return false}
@@ -65,7 +65,7 @@ object chocolatin {
 	
 	method precio(){return pesoInicial*0.50}
 	method gusto(){return "chocolate"}
-	method mosdisco(){pesoActual=pesoActual-2}
+	method mordisco(){pesoActual=pesoActual-2}
 	method libreGluten(){return false}
 	
 	/* al principio, el peso actual coincide con el inicial */
