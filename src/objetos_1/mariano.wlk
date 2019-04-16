@@ -19,6 +19,12 @@ object mariano{
 	method hayGolosinaSinTACC(){
 		return golosinas.any({golosina => golosina.libreGluten()})
 	}
+	method preciosCuidados(){
+		return golosinas.all({golosina=>golosina.precio()>=10})
+	}
+	method golosinaDeSabor(unSabor){}
+	method golosinasDeSabor(unSabir){}
+	
 
 }
 
