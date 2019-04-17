@@ -2,26 +2,26 @@ import golosinas.*
 
 describe "test de chupetin" {
 
-	test "peso inicial" {
+	test "peso inicial de chupetin es 7" {
 		assert.equals(7,chupetin.peso())
 	}
 	
-	test "precio" {
+	test "precio del chupetin por unidad es 2" {
 		assert.equals(2, chupetin.precio())
 	}
 	
-	test "mordiscos" {
-		bombon.mordisco()
-		assert.equals(6.3, chupetin.peso()>=2)
-		bombon.mordisco()
-		assert.equals(5.67, chupetin.peso()>=2)
+	test "peso inicial del chupetin 7 si le doy un mordisco debe dar 6.3 el peso" {
+		chupetin.mordisco()
+		assert.equals(6.3, chupetin.peso())
+		
 	}
 	
-	test "gusto" {
+	
+	test "sabor del chupetin" {
 		assert.equals("naranja", chupetin.gusto())
 	}
 	
-	test "libre de gluten" {
+	test "comprobar que es libre de gluten" {
 		assert.that(chupetin.libreGluten())	
 	}
 	

@@ -10,19 +10,29 @@ describe "test de oblea" {
 		assert.equals(5, oblea.precio())
 	}
 	
-	test "mordiscos" {
-		bombon.mordisco()
-		assert.equals(125, oblea.peso()>70)
-		bombon.mordisco()
-		assert.equals(62.5, oblea.peso()>70)
+	test "peso inicial oblea 250 si hago un mordisco debe dar 125 el peso" {
+		oblea.mordisco()
+		assert.equals(125, oblea.peso())
+		//oblea.mordisco()
+		//assert.equals(62.5, oblea.peso())
+		
+		}
+	test"muerdo la oblea 3 veces, el peso debe ser 46.875(250-125-62.5-46.875)"{
+		oblea.mordisco()
+		//assert.equals(125, oblea.peso())
+		oblea.mordisco()
+		//assert.equals(62.5, oblea.peso())
+		oblea.mordisco()
+		assert.equals(46.875, oblea.peso())
+		
 	}
 	
 	test "gusto" {
 		assert.equals("vainilla", oblea.gusto())
 	}
 	
-	test "libre de gluten" {
-		assert.that(oblea.libreGluten())	
+	test "compruebo que no es libre de gluten" {
+		assert.notThat(oblea.libreGluten())	
 	}
 	
 }

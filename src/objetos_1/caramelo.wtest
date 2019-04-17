@@ -2,22 +2,21 @@ import golosinas.*
 
 describe "test de caramelo" {
 
-	test "peso inicial" {
+	test "peso inicial del caramelo" {
 		assert.equals(5, caramelo.peso())
 	}
 	
-	test "precio" {
+	test "precio del caramelo por unidad" {
 		assert.equals(1, caramelo.precio())
 	}
 	
-	test "mordiscos" {
-		bombon.mordisco()
+	test "el peso inicial del caramelo es 5 y le doy un mordisco y me tiene que dar 4" {
+		caramelo.mordisco()
 		assert.equals(4, caramelo.peso())
-		bombon.mordisco()
-		assert.equals(3, caramelo.peso())
+		
 	}
 	
-	test "gusto" {
+	test "sabor del caramelo" {
 		assert.equals("frutilla", caramelo.gusto())
 	}
 	
