@@ -1,0 +1,45 @@
+import golosinas.*
+
+describe "test de tutti frutti" {
+
+	test "peso del tutti frutti"{
+		assert.equals(5,tuttifrutti.peso())
+	}
+	
+	test "precio del tutti frutti si es libre de gluten"{
+		tuttifrutti.libreGluten(true)
+		assert.equals(7,tuttifrutti.precio())
+		
+	}
+	test "precio del tutti frutti si no es libre de gluten"{
+		tuttifrutti.libreGluten(false)
+		assert.equals(10,tuttifrutti.precio())
+		
+	}
+	
+	test "con un mordisco de sabor frutilla pasa a chocolate" {
+		tuttifrutti.mordisco()
+		assert.equals(chocolate,frutilla.siguiente())
+	}
+	test "con dos mordisco de sabor chocolate pasa a naranja" {
+		tuttifrutti.mordisco()
+		tuttifrutti.mordisco()
+		assert.equals(naranja,chocolate.siguiente())
+	}
+	test "con tres mordisco de sabor naranja pasa a frutilla" {
+		tuttifrutti.mordisco()
+		tuttifrutti.mordisco()
+		tuttifrutti.mordisco()
+		assert.equals(frutilla,naranja.siguiente())
+	}
+	
+	test "compruebo que no es libre de gluten" {
+		tuttifrutti.libreGluten(false)
+		assert.notThat(tuttifrutti.libreGluten())	
+	}
+	test "compruebo que es libre de gluten" {
+		tuttifrutti.libreGluten(true)
+		assert.that(tuttifrutti.libreGluten())	
+	}
+	
+}

@@ -60,8 +60,8 @@ object chocolatin {
 	// hay que acordarse de *dos* cosas, el peso inicial y el peso actual
 	// el precio se calcula a partir del precio inicial
 	// el mordisco afecta al peso actual
-	var pesoInicial
-	var pesoActual
+	var property pesoInicial
+	var property pesoActual
 	
 	method precio(){return pesoInicial*0.50}
 	method gusto(){return "chocolate"}
@@ -73,18 +73,25 @@ object chocolatin {
 		pesoInicial = cuanto
 		pesoActual = cuanto
 	}
-}
+	
+	}
+	
+	
 
 object golosinaBaniada {
 	var golosinaInterior
 	var pesoBanio = 4
 	
-	method baniaA(unaGolosina) { golosinaInterior = unaGolosina }
+	method baniaA(unaGolosina) {  golosinaInterior = unaGolosina}
 	method precio() {return golosinaInterior.precio()+ 2 }
-	method peso() { return golosinaInterior.peso() + pesoBanio }
+	method peso() { return golosinaInterior.peso() + pesoBanio}
 	method mordisco() {
-		golosinaInterior.mordisco()
-		if (pesoBanio > 0) { pesoBanio -= 2 }
+		
+		if (pesoBanio > 0) { 
+			pesoBanio -= 2
+		}else{
+			golosinaInterior.mordisco()
+		}
 		// otra forma de hacer la cuenta: pesoBanio = (pesoBanio - 2).max(0) 
 	}	
 	method gusto() { return golosinaInterior.gusto() }
@@ -93,13 +100,30 @@ object golosinaBaniada {
 
 object tuttifrutti {
 	var peso= 5
-	var gusto="frutilla"
+	var gusto=frutilla
 	var property libreGluten=false
 	
 	method peso()=peso
 	method precio()=if(libreGluten) 7 else 10
-	method mordisco(){gusto=gusto.siguiente()}
+	method mordisco(){
+		//var sabor
+		//sabor=gusto
+		 gusto=gusto.siguiente()
+		return gusto
+	}
 	
 	
+}
+
+object frutilla{
+	method siguiente() {return chocolate}
+}
+
+object chocolate{
+	method siguiente(){return naranja}
+}
+
+object naranja{
+	method siguiente(){return frutilla}
 }
 
