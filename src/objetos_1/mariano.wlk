@@ -43,8 +43,8 @@ object mariano{
 		return golosina.sum({golosina => golosina.peso()})
 	}
 	method golosinasFaltantes(_golosinasDeseadas){
-		juliana.golosinasDeseadas(_golosinasDeseadas)
-	}
+		golosinas=_golosinasDeseadas
+		}
 	
 
 }
