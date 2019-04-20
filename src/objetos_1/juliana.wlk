@@ -1,7 +1,8 @@
 object juliana {
+	var golosinaGusta=[]
 	
-	method golosinaQueMeGusta(){
-		
-	}
+	method agregarALaBolsa(golosina){golosinaGusta.add(golosina)}
 	
+
+	method robarGolosina(){}
 }
