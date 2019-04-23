@@ -42,15 +42,23 @@ object mariano{
 	method pesoGolosinas(){
 		return golosina.sum({golosina => golosina.peso()})
 	}
-	method golosinasFaltantes(_golosinasDeseadas){
-		if(self.tieneLasGolosinas()){
+	//devuelve las golosinas que juliana quiere y mariano no tiene
+	method golosinasFaltantes(golosinasDeseadas){
+		return juliana.golosinasqueMarianoNoTiene()
 			
 		}
-		}
+	//verifica si mariano tiene la golosina que le gusta a juliana
 	method tieneLasGolosinas(){
+		var golosinasDeseadas=juliana.golosina()
 		//golosinas que le gustan a juliana y tiene mariano
-			return golosinaGusta.filter({golosinaGusta => golosinas.contains(caramelo)})
+			return golosinasDeseadas.filter({golosinaDeseada => golosinas.contains(golosinaDeseada)})
 		}
+		
+	method seLlevaLaGolosina(){
+		
+		juliana.robarGolosina(self.tieneLasGolosinas())
+		self.desechar(self.tieneLasGolosinas())
+	}
 	
 
 }
