@@ -1,5 +1,5 @@
 import golosinas.*
-import juliana.*
+
 object mariano{
 	var golosinas=[]
 	// para este objeto no damos pistas
@@ -42,24 +42,14 @@ object mariano{
 	method pesoGolosinas(){
 		return golosina.sum({golosina => golosina.peso()})
 	}
-	//devuelve las golosinas que juliana quiere y mariano no tiene
+
 	method golosinasFaltantes(golosinasDeseadas){
-		return juliana.golosinasqueMarianoNoTiene()
-			
+		return golosinasDeseadas.difference(golosinas)
+				
 		}
-	//verifica si mariano tiene la golosina que le gusta a juliana
-	method tieneLasGolosinas(){
-		var golosinasDeseadas=juliana.golosina()
-		//golosinas que le gustan a juliana y tiene mariano
-			return golosinasDeseadas.filter({golosinaDeseada => golosinas.contains(golosinaDeseada)})
-		}
-		
-	method seLlevaLaGolosina(){
-		
-		juliana.robarGolosina(self.tieneLasGolosinas())
-		self.desechar(self.tieneLasGolosinas())
+	method gustosFaltantes(gustosDeseados){
+		return gustosDeseados.difference(golosinas.map{golosina=>golosina.gusto()})
 	}
 	
-
 }
 
