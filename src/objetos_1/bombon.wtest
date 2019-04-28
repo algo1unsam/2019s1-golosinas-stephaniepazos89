@@ -10,18 +10,22 @@ describe "test de bombon" {
 		assert.equals(5, bombon.precio())
 	}
 	
-	test "mordiscos" {
+	test "peso inicial 15 al darle un mordisco me queda" {
 		bombon.mordisco()
 		assert.equals(11, bombon.peso())
+		}
+		
+	test "El peso inicial despues del primer mordisco quedo en 11 y si le damos un segundo mordisco queda 7.8"{
+		bombon.mordisco()
 		bombon.mordisco()
 		assert.equals(7.8, bombon.peso())
 	}
 	
-	test "gusto" {
+	test "Sabor del bombon" {
 		assert.equals("frutilla", bombon.gusto())
 	}
 	
-	test "libre de gluten" {
+	test "Si el bombon es libre de gluten" {
 		assert.that(bombon.libreGluten())	
 	}
 	

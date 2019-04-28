@@ -31,6 +31,10 @@ describe "tests de mariano" {
 		assert.equals(11, bombon.peso())
 	}
 	
+	test "Hay golosina sin TAC"{
+		
+	}
+	
 
 	
 }

@@ -6,7 +6,7 @@ describe "test de oblea" {
 		assert.equals(250,oblea.peso())
 	}
 	
-	test "precio" {
+	test "precio de la oblea" {
 		assert.equals(5, oblea.precio())
 	}
 	
@@ -27,7 +27,7 @@ describe "test de oblea" {
 		
 	}
 	
-	test "gusto" {
+	test "Sabor de la oblea" {
 		assert.equals("vainilla", oblea.gusto())
 	}
 	

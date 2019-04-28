@@ -73,8 +73,11 @@ object chocolatin {
 		pesoInicial = cuanto
 		pesoActual = cuanto
 	}
+	method peso()=pesoActual
+		}
 	
-	}
+	
+		
 	
 	
 

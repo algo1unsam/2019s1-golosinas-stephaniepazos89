@@ -1,46 +1,206 @@
 import golosinas.*
 
 describe "test de golosinaBaniada"{
-	
-	test "Precio de la golosina de base" {
-		golosinaBaniada.baniaA(caramelo)
-		assert.equals (3, golosinaBaniada.precio())
+	//Comprobacion con chupetin	
+	test "Precio de la golosina de base(chupetin)" {
+		golosinaBaniada.baniaA(chupetin)
+		assert.equals (4, golosinaBaniada.precio())
 	}
 	test "Me indica el peso total entre el la golosina base y el peso del bañado " {
-		golosinaBaniada.baniaA(caramelo)
+		golosinaBaniada.baniaA(chupetin)
+		assert.equals (11, golosinaBaniada.peso())
+	}
+	
+	test "Le doy un mordisco a la golosina bañada de peso 11(golosinaInterior que es el chupetin de peso 7 + el peso del baño que es 4) 
+			y como el peso del baño es mayor a cero le resto 2 quedando 9" {
+		golosinaBaniada.baniaA(chupetin)
+		golosinaBaniada.mordisco()
+		assert.equals(9, golosinaBaniada.peso())
+		}
+	test "Le doy dos mordisco a la golosina bañada de peso 9 y como el peso del baño(peso 2) es mayor a cero le resto 2 quedando 7 " {
+		golosinaBaniada.baniaA(chupetin)
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(7, golosinaBaniada.peso())
+		}
+	test "Le doy tres mordisco a la golosina bañada de peso 7 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior quedando 5" {
+        golosinaBaniada.baniaA(chupetin)   	
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(6.3, golosinaBaniada.peso())
+		}
+		
+	test "sabor de la golosina bañada depende de la golosina interior" {
+		golosinaBaniada.baniaA(chupetin) 
+		assert.equals("naranja", golosinaBaniada.gusto())
+	}
+	
+	test "compruebo que sea libre de gluten" {
+		golosinaBaniada.baniaA(chupetin) 
+		assert.that(golosinaBaniada.libreGluten())	
+	}
+	
+	// -----------------------------------------------------------------------------------------------------------------------------------
+	
+	//Comprobacion con tuttifrutti(libre de gluten)
+	
+	test "Precio de la golosina de base(tuttifrutti )" {
+		tuttifrutti.libreGluten(true)
+		golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals (9, golosinaBaniada.precio())
+	}
+	//Comprobacion con tuttifrutti(No siendo libre de gluten)
+	
+	test "Precio de la golosina de base(tuttifrutti) " {
+		tuttifrutti.libreGluten(false)
+		golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals (12, golosinaBaniada.precio())
+	}
+	test "Me indica el peso total entre el la golosina base (tuttifrutti ) y el peso del bañado " {
+		golosinaBaniada.baniaA(tuttifrutti )
 		assert.equals (9, golosinaBaniada.peso())
 	}
 	
-	test "Le doy un mordisco a la golosina bañada de peso 9(golosinaInterior que es caramelo de peso 5 + el peso del baño que es 4) 
+	test "Le doy un mordisco a la golosina bañada de peso 9(golosinaInterior que es el tuttifrutti de peso 5 + el peso del baño que es 4) 
 			y como el peso del baño es mayor a cero le resto 2 quedando 7" {
-		golosinaBaniada.baniaA(caramelo)
+		golosinaBaniada.baniaA(tuttifrutti)
 		golosinaBaniada.mordisco()
 		assert.equals(7, golosinaBaniada.peso())
 		}
 	test "Le doy dos mordisco a la golosina bañada de peso 7 y como el peso del baño(peso 2) es mayor a cero le resto 2 quedando 5 " {
-		golosinaBaniada.baniaA(caramelo)
+		golosinaBaniada.baniaA(tuttifrutti)
 		golosinaBaniada.mordisco()
 		golosinaBaniada.mordisco()
 		assert.equals(5, golosinaBaniada.peso())
 		}
-	test "Le doy tres mordisco a la golosina bañada de peso 5 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior quedando 4" {
-        golosinaBaniada.baniaA(caramelo)   	
+	test "Le doy tres mordisco a la golosina bañada de peso 5 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior cambiando el guso de la golosina a chocolate" {
+        golosinaBaniada.baniaA(tuttifrutti )   	
 		golosinaBaniada.mordisco()
 		golosinaBaniada.mordisco()
 		golosinaBaniada.mordisco()
-		assert.equals(4, golosinaBaniada.peso())
+		assert.equals(chocolate,frutilla.siguiente())
+		}
+		test "Le doy tres mordisco a la golosina bañada de peso 5 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior(dos mordiscos) cambiando el guso de la golosina a naranja" {
+        golosinaBaniada.baniaA(tuttifrutti )   	
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(naranja,chocolate.siguiente())
+		}
+		test "Le doy tres mordisco a la golosina bañada de peso 5 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior cambiando el guso de la golosina a frutilla" {
+        golosinaBaniada.baniaA(tuttifrutti )   	
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(frutilla,naranja.siguiente())
 		}
 		
-		
-	
-	test "sabor de la golosina bañada depende de la golosina interior" {
-		golosinaBaniada.baniaA(caramelo) 
-		assert.equals("frutilla", golosinaBaniada.gusto())
+		test "compruebo no sea libre de gluten el tuttifrutti" {
+		tuttifrutti.libreGluten(false)
+		golosinaBaniada.baniaA(tuttifrutti ) 
+		assert.notThat(golosinaBaniada.libreGluten())	
 	}
-	
-	test "compruebo que sea libre de gluten" {
-		golosinaBaniada.baniaA(caramelo) 
+		
+		test "compruebo que sea libre de gluten el tuttifrutti" {
+		tuttifrutti.libreGluten(true)
+		golosinaBaniada.baniaA(tuttifrutti ) 
 		assert.that(golosinaBaniada.libreGluten())	
 	}
+	// -----------------------------------------------------------------------------------------------------------------------------------
 	
+	//Comprobacion con chocolatincon pesoInicial 40
+	
+	test "Precio de la golosina de base(chocolatin)" {
+		chocolatin.pesoInicial(40)
+		golosinaBaniada.baniaA(chocolatin)
+		assert.equals (22, golosinaBaniada.precio())
+	}
+	test "Me indica el peso total entre el la golosina base(chocolatin) y el peso del bañado " {
+		chocolatin.pesoInicial(40)
+		golosinaBaniada.baniaA(chocolatin)
+		assert.equals (44, golosinaBaniada.peso())
+	}
+	
+	test "Le doy un mordisco a la golosina bañada de peso 44(golosinaInterior que es el chocolatin de peso 40 + el peso del baño que es 4) 
+			y como el peso del baño es mayor a cero le resto 2 quedando 42" {
+		chocolatin.pesoActual(40)
+		golosinaBaniada.baniaA(chocolatin)
+		golosinaBaniada.mordisco()
+		assert.equals(42, golosinaBaniada.peso())
+		}
+	test "Le doy dos mordisco a la golosina bañada de peso 42 y como el peso del baño(peso 2) es mayor a cero le resto 2 quedando 40 " {
+		chocolatin.pesoActual(40)
+		golosinaBaniada.baniaA(chocolatin)
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(40, golosinaBaniada.peso())
+		}
+	test "Le doy tres mordisco a la golosina bañada de peso 40 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior quedando 38" {
+		chocolatin.pesoActual(40)
+        golosinaBaniada.baniaA(chocolatin)   	
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(38, golosinaBaniada.peso())
+		}
+		
+	test "sabor de la golosina bañada depende de la golosina interior(chocolatin)" {
+		golosinaBaniada.baniaA(chocolatin) 
+		assert.equals("chocolate", golosinaBaniada.gusto())
+	}
+	
+	test "compruebo que no sea libre de gluten" {
+		golosinaBaniada.baniaA(chocolatin) 
+		assert.notThat(golosinaBaniada.libreGluten())	
+	}
+	// -----------------------------------------------------------------------------------------------------------------------------------
+	
+	//Comprobacion con chocolatincon pesoInicial 100
+	
+	test "Precio de la golosina de base(chocolatin) " {
+		chocolatin.pesoInicial(100)
+		golosinaBaniada.baniaA(chocolatin)
+		assert.equals (52, golosinaBaniada.precio())
+	}
+	test " Me indica el peso total entre el la golosina base(chocolatin) y el peso del bañado " {
+		chocolatin.pesoInicial(100)
+		golosinaBaniada.baniaA(chocolatin)
+		assert.equals (104, golosinaBaniada.peso())
+	}
+	
+	test " Le doy un mordisco a la golosina bañada de peso 104(golosinaInterior que es el chocolatin de peso 100 + el peso del baño que es 4) 
+			y como el peso del baño es mayor a cero le resto 2 quedando 102" {
+		chocolatin.pesoActual(100)
+		golosinaBaniada.baniaA(chocolatin)
+		golosinaBaniada.mordisco()
+		assert.equals(102, golosinaBaniada.peso())
+		}
+	test "Le doy dos mordisco a la golosina bañada de peso 102 y como el peso del baño(peso 2) es mayor a cero le resto 2 quedando 100 " {
+		chocolatin.pesoActual(100)
+		golosinaBaniada.baniaA(chocolatin)
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(100, golosinaBaniada.peso())
+		}
+	test "Le doy tres mordisco a la golosina bañada de peso 100 y como el peso del baño(peso 0) es igual a cero empiezo con la golosina interior quedando 98" {
+		chocolatin.pesoActual(100)
+        golosinaBaniada.baniaA(chocolatin)   	
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		golosinaBaniada.mordisco()
+		assert.equals(98, golosinaBaniada.peso())
+		}
+		test " sabor de la golosina bañada depende de la golosina interior(chocolatin)" {
+		golosinaBaniada.baniaA(chocolatin) 
+		assert.equals("chocolate", golosinaBaniada.gusto())
+	}
+	
+	test " compruebo que no sea libre de gluten" {
+		golosinaBaniada.baniaA(chocolatin) 
+		assert.notThat(golosinaBaniada.libreGluten())	
+	}
 }

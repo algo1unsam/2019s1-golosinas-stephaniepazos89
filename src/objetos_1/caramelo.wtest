@@ -15,6 +15,10 @@ describe "test de caramelo" {
 		assert.equals(4, caramelo.peso())
 		
 	}
+	test "Al dar el primer mordisco me quedo como peso inicial 4 y al darle el segundo mordisco me queda 3 " {
+		caramelo.mordisco()
+		assert.equals(3, caramelo.peso())
+		}
 	
 	test "sabor del caramelo" {
 		assert.equals("frutilla", caramelo.gusto())

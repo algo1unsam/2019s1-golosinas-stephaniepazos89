@@ -15,6 +15,12 @@ describe "test de chupetin" {
 		assert.equals(6.3, chupetin.peso())
 		
 	}
+	test "Al dar el primer mordisco el peso inicial del chupetin me quedo 6.3 si le doy un segundo mordisco debe dar 5.4 el peso" {
+		chupetin.mordisco()
+		chupetin.mordisco()
+		assert.equals(5.67, chupetin.peso())
+		
+	}
 	
 	
 	test "sabor del chupetin" {

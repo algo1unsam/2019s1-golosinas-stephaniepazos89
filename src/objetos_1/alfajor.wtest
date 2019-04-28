@@ -14,6 +14,12 @@ describe "test de alfajor" {
 		alfajor.mordisco()
 		assert.equals(240, alfajor.peso())
 		}
+		
+	test "peso inicial del alfajor 240 y le doy el segundo mordisco y me da peso 192" {
+		alfajor.mordisco()
+		alfajor.mordisco()
+		assert.equals(192, alfajor.peso())
+		}
 	
 	test "gusto del alfajor" {
 		assert.equals("chocolate", alfajor.gusto())
