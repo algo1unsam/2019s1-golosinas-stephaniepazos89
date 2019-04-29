@@ -32,8 +32,34 @@ describe "tests de mariano" {
 	}
 	
 	test "Hay golosina sin TAC"{
-		
+		//assert.that(mariano.hayGolosinaSinTACC())
+		assert.notThat(chocolatin.libreGluten())
+		assert.that(caramelo.libreGluten())
+		assert.that(bombon.libreGluten())
 	}
+	
+	test " Indicar si todas las golosinas compradas tienen un precio menor o igual a 10 pesos"{
+		assert.equals(50,chocolatin.precio())
+		assert.equals(1,caramelo.precio())
+		assert.equals(5,bombon.precio())
+		assert.notThat(mariano.preciosCuidados())
+	}
+	
+	//test "primer golosina que encuentra en la bolsa del sabor frutilla"{}
+	
+	//test " las golosinas que encuentre dentro de la bolsa del sabor escogido"{}
+	
+	//test "los sabores de las golosinas de la bolsa, idealmente sin repetidos"{}
+	
+	test " la golosina mas cara en la bolsa de golosinas compradas"{
+		assert.equals(50,chocolatin.precio())
+	}
+	
+	//test "el peso de la bolsa de golosinas compradas"{
+	//	assert.equals(120,mariano.golosinas())
+	//}
+	
+	
 	
 
 	

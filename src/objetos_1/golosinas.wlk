@@ -60,7 +60,7 @@ object chocolatin {
 	// hay que acordarse de *dos* cosas, el peso inicial y el peso actual
 	// el precio se calcula a partir del precio inicial
 	// el mordisco afecta al peso actual
-	var property pesoInicial
+	var pesoInicial
 	var property pesoActual
 	
 	method precio(){return pesoInicial*0.50}
@@ -73,6 +73,7 @@ object chocolatin {
 		pesoInicial = cuanto
 		pesoActual = cuanto
 	}
+	method pesoInicial()=pesoInicial
 	method peso()=pesoActual
 		}
 	
