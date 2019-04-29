@@ -32,32 +32,43 @@ describe "tests de mariano" {
 	}
 	
 	test "Hay golosina sin TAC"{
-		//assert.that(mariano.hayGolosinaSinTACC())
-		assert.notThat(chocolatin.libreGluten())
-		assert.that(caramelo.libreGluten())
-		assert.that(bombon.libreGluten())
-	}
+		assert.that(mariano.hayGolosinaSinTACC())
+		}
 	
 	test " Indicar si todas las golosinas compradas tienen un precio menor o igual a 10 pesos"{
-		assert.equals(50,chocolatin.precio())
-		assert.equals(1,caramelo.precio())
-		assert.equals(5,bombon.precio())
 		assert.notThat(mariano.preciosCuidados())
 	}
 	
-	//test "primer golosina que encuentra en la bolsa del sabor frutilla"{}
+	test "primer golosina que encuentra en la bolsa del sabor frutilla"{
+		assert.equals(caramelo,mariano.golosinaDeSabor(frutilla))
+	}
 	
-	//test " las golosinas que encuentre dentro de la bolsa del sabor escogido"{}
+	test " las golosinas que encuentre dentro de la bolsa del sabor escogido(frutilla)"{
+		assert.equals([caramelo,bombon],mariano.golosinasDeSabor(frutilla))
+		
+	}
 	
-	//test "los sabores de las golosinas de la bolsa, idealmente sin repetidos"{}
+	test "los sabores de las golosinas de la bolsa, idealmente sin repetidos"{
+		assert.equals(#{frutilla,chocolate},mariano.sabores())
+	
+	}
 	
 	test " la golosina mas cara en la bolsa de golosinas compradas"{
+		chocolatin.pesoInicial(100)
 		assert.equals(50,chocolatin.precio())
 	}
 	
-	//test "el peso de la bolsa de golosinas compradas"{
-	//	assert.equals(120,mariano.golosinas())
-	//}
+	test "el peso de la bolsa de golosinas compradas"{
+		assert.equals(120,mariano.pesoGolosinas())
+	}
+	
+	test "Devuelve las golosinas que estan entre golosinasFaltantes"{
+		assert.equals(#{alfajor,chupetin},mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin}))
+	}
+	
+	test "Debe devolver las golosinas que están entre las golosinasDeseadas, y que Mariano no compró."{
+		assert.equals(#{melon,vainilla},mariano.gustosFaltantes(#{melon, chocolate, frutilla ,vainilla}))
+	}
 	
 	
 	

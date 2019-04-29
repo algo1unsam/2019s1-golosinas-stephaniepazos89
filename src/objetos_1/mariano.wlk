@@ -40,7 +40,7 @@ object mariano{
 	}
 	
 	method pesoGolosinas(){
-		return golosina.sum({golosina => golosina.peso()})
+		return golosinas.sum({golosina => golosina.peso()})
 	}
 
 	method golosinasFaltantes(golosinasDeseadas){
